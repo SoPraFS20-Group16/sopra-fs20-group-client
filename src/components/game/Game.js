@@ -79,7 +79,6 @@ class Game extends React.Component {
 
   render() {
     return (
-      // <html className={'game-bg'}>
       <div>
         <button
           className={'button1'}
@@ -126,7 +125,6 @@ class Game extends React.Component {
           </div>
         </div>
       </div>
-      // </html>
     );
   }
 }

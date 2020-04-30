@@ -2,7 +2,6 @@ import React from 'react';
 import Hex from './Hex';
 import Road from './Road';
 import Settlement from './Settlement';
-import { api } from '../../helpers/api';
 
 export default class Board extends React.Component {
   constructor(props) {
@@ -287,26 +286,12 @@ export default class Board extends React.Component {
 
   createBoard() {
     console.log('this.props.tiles.length', this.props.tiles, this.props.tiles.length);
-
-    if (this.props.tiles && this.props.tiles.length !== 0 && this.props.tiles !== this.state.tiles) {
-      this.setState({ tiles: this.props.tiles });
-    }
-
-    if (this.state.tiles.length !== 0) {
-      console.log('state with tiles', this.state.tiles);
-      console.log('coordinates', this.state.tiles[0].coordinates[0].x, this.state.tiles[0].coordinates[0].y);
-
-      // return Hexes from here since coordinates are defined
-    }
+    console.log('state with tiles', this.props.tiles);
+    console.log('coordinates', this.props.tiles[0].coordinates[0].x, this.props.tiles[0].coordinates[0].y);
 
     const hexes = [];
     const images = this.state.randomResPics;
-    /*
-    const images = {
-      HILL: "",
 
-    };
-    */
     const numberImg = this.randomNumber();
     let i = -1;
     let j = -1;
@@ -411,7 +396,7 @@ export default class Board extends React.Component {
               position: 'relative',
               justifyContent: 'centre',
             }}>
-            {this.createBoard()}
+            {this.props.tiles && this.props.tiles.length !== 0 && this.createBoard()}
 
             {/* The following <div> below is reponsible for the placeholders which are above the tiles -> this is where your city, street, other elements are placed. */}
             <div

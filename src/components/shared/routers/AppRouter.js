@@ -1,17 +1,17 @@
-import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { GameGuard } from "../routeProtectors/GameGuard";
-import GameRouter from "./GameRouter";
-import { LoginGuard } from "../routeProtectors/LoginGuard";
-import Login from "../../login/Login";
-import { StartPageGuard } from "../routeProtectors/StartPageGuard";
-import StartPage from "../../startPage/StartPage";
-import { RegisterGuard } from "../routeProtectors/RegisterGuard";
-import Register from "../../register/Register";
-import Home from "../../home/Home";
-import Dashboard from "../../dashboard/Dashboard";
-import Profile from "../../profile/Profile";
-import Board from "../../board/Board";
+import React from 'react';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { GameGuard } from '../routeProtectors/GameGuard';
+import GameRouter from './GameRouter';
+import { LoginGuard } from '../routeProtectors/LoginGuard';
+import Login from '../../login/Login';
+import { StartPageGuard } from '../routeProtectors/StartPageGuard';
+import StartPage from '../../startPage/StartPage';
+import { RegisterGuard } from '../routeProtectors/RegisterGuard';
+import Register from '../../register/Register';
+import Home from '../../home/Home';
+import Dashboard from '../../dashboard/Dashboard';
+import Profile from '../../profile/Profile';
+import Board from '../../board/Board';
 
 /**
  * Main router of your application.
@@ -23,8 +23,8 @@ import Board from "../../board/Board";
  * Documentation about routing in React: https://reacttraining.com/react-router/web/guides/quick-start
  */
 class AppRouter extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
   }
   render() {
     return (
@@ -32,7 +32,7 @@ class AppRouter extends React.Component {
         <Switch>
           <div>
             <Route
-              path="/startPage"
+              path='/startPage'
               exact
               render={() => (
                 <StartPageGuard>
@@ -41,15 +41,15 @@ class AppRouter extends React.Component {
               )}
             />
             <Route
-              path="/game"
+              path='/game'
               render={() => (
                 <GameGuard>
-                  <GameRouter base={"/game"} />
+                  <GameRouter base={'/game'} />
                 </GameGuard>
               )}
             />
             <Route
-              path="/dashboard"
+              path='/dashboard'
               exact
               render={() => (
                 <GameGuard>
@@ -58,7 +58,7 @@ class AppRouter extends React.Component {
               )}
             />
             <Route
-              path="/profile"
+              path='/profile'
               render={() => (
                 <GameGuard>
                   <Profile />
@@ -66,7 +66,7 @@ class AppRouter extends React.Component {
               )}
             />
             <Route
-              path="/login"
+              path='/login'
               exact
               render={() => (
                 <LoginGuard>
@@ -74,15 +74,9 @@ class AppRouter extends React.Component {
                 </LoginGuard>
               )}
             />
+            <Route path='/games/:id' exact render={() => <Home />} />
             <Route
-              path="/games/:id"
-              exact
-              render={() => (
-                <Home />
-              )}
-            />
-            <Route
-              path="/register"
+              path='/register'
               exact
               render={() => (
                 <RegisterGuard>
@@ -91,14 +85,14 @@ class AppRouter extends React.Component {
               )}
             />
             <Route
-              path="/board"
+              path='/board'
               render={() => (
                 <GameGuard>
                   <Board />
                 </GameGuard>
               )}
             />
-            <Route path="/" exact render={() => <Redirect to={"/game"} />} />
+            <Route path='/' exact render={() => <Redirect to={'/game'} />} />
           </div>
         </Switch>
       </BrowserRouter>
