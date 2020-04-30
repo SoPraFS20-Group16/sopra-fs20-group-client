@@ -1,5 +1,5 @@
-import React from "react";
-import './style.css'
+import React from 'react';
+import './style.css';
 
 export default function feed(props) {
   return (
@@ -9,5 +9,5 @@ export default function feed(props) {
       <p>TheLegend27 lost half of his cards!</p>
       <p>TheLegend27 is crying!</p>
     </div>
-  )
+  );
 }
